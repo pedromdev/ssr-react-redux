@@ -4,7 +4,7 @@ import render from './helpers/render'
 const app = express();
 app.use(express.static('public'))
 
-app.get("/",(req,res) => {
+app.get("*",(req,res) => {
     res.send(render(req));
 });
 
