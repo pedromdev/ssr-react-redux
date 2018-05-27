@@ -92,9 +92,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _App = __webpack_require__(21);
+
+var _App2 = _interopRequireDefault(_App);
 
 var _reactRouterDom = __webpack_require__(1);
 
@@ -108,15 +114,17 @@ var _listUsers2 = _interopRequireDefault(_listUsers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = [{
-    path: '/',
-    component: _Home2.default,
-    exact: true
-}, {
-    loadData: _listUsers.loadData,
-    path: '/users',
-    component: _listUsers2.default
-}];
+exports.default = [_extends({}, _App2.default, {
+    routes: [{
+        path: '/',
+        component: _Home2.default,
+        exact: true
+    }, {
+        loadData: _listUsers.loadData,
+        path: '/users',
+        component: _listUsers2.default
+    }]
+})];
 
 /***/ }),
 /* 4 */
@@ -545,6 +553,44 @@ module.exports = require("axios");
 /***/ (function(module, exports) {
 
 module.exports = require("express-http-proxy");
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterConfig = __webpack_require__(5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var App = function App(_ref) {
+    var route = _ref.route;
+
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'h1',
+            null,
+            'HEADER'
+        ),
+        (0, _reactRouterConfig.renderRoutes)(route.routes)
+    );
+};
+
+exports.default = {
+    component: App
+};
 
 /***/ })
 /******/ ]);
