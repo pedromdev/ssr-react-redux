@@ -1,8 +1,8 @@
 import React from 'react';
 import App from './App'
 import { Route } from 'react-router-dom';
-import Home from './components/Home';
-import UsersList,{ loadData } from './components/listUsers'
+import HomePage from './pages/HomePage';
+import UserListPage from './pages/UserListPage'
 
 
 
@@ -11,14 +11,13 @@ export default [
         ...App,
         routes: [
             {
+                ...HomePage,
                 path: '/',
-                component: Home,
                 exact: true
             },
             {
-                loadData,
+                ...UserListPage,
                 path: '/users',
-                component: UsersList
             }
         ]
     }
